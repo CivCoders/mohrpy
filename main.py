@@ -47,7 +47,6 @@ plt.subplots_adjust(left=0.25, bottom=0.25)
 c1 = plt.Circle((sigma_avg, 0), radii, color='b', fill=False)
 plt.gcf().gca().add_artist(c1)
 
-plt.axis([ min(sigma_x, sigma_y) - 30, max(sigma_x, sigma_y) + 30, -radii -30, radii + 30])
 plt.grid(True)
 
 plt.title("Mohr's circle")
@@ -71,9 +70,9 @@ def update(val):
 	tau_xy = s_tauxy.val
 	sigma_avg = fsigma_avg(sigma_x, sigma_y)
 	radii = fradii(sigma_x, sigma_y, tau_xy)
-	c1.set_center((sigma_avg,0))
-	c1.set_radius(radii)
-
+	c1.center=sigma_avg,0
+	c1.radius=radii
+	#plt.axis([ min(sigma_x, sigma_y) - radii, max(sigma_x, sigma_y) + radii, -2*radii, 2*radii])
 	fig.canvas.draw_idle()
 
 s_sigx.on_changed(update)
