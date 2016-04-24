@@ -47,6 +47,7 @@ plt.subplots_adjust(left=0.25, bottom=0.25)
 c1 = plt.Circle((sigma_avg, 0), radii, color='b', fill=False)
 plt.gcf().gca().add_artist(c1)
 
+plt.axis([ min(sigma_x, sigma_y) - 30, max(sigma_x, sigma_y) + 30, -radii -30, radii + 30])
 plt.grid(True)
 
 plt.title("Mohr's circle")
@@ -72,7 +73,7 @@ def update(val):
 	radii = fradii(sigma_x, sigma_y, tau_xy)
 	c1.center=sigma_avg,0
 	c1.radius=radii
-	#plt.axis([ min(sigma_x, sigma_y) - radii, max(sigma_x, sigma_y) + radii, -2*radii, 2*radii])
+	plt.axis([ min(sigma_x, sigma_y) - radii, max(sigma_x, sigma_y) + radii, -2*radii, 2*radii])
 	fig.canvas.draw_idle()
 
 s_sigx.on_changed(update)
@@ -80,16 +81,3 @@ s_sigy.on_changed(update)
 s_tauxy.on_changed(update)
 
 plt.show()
-
-# Add the following in matplotlib.patches.Circle
-#
-#
-#     def set_center(self, xy):
-#         """
-#         Set the center of the circle
-#         """
-#         self.center = xy
-#
-#     def get_center(self):
-#         'return the radius of circle'
-#         return self.xy
