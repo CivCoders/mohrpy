@@ -2,7 +2,7 @@
 
 Script for plotting Mohr's circle for a system of stess. Written in python using matplotlib package. For more details about Mohr's circle goto https://en.wikipedia.org/wiki/Mohr%27s_circle
 
-![Screenshot](https://postimg.org/image/zcv4uqvx9)
+![Screenshot](https://s14.postimg.org/4vfa378kh/Screenshot_from_2016_10_31_00_10_19.png)
 
 Follow the instructions to run script
 
